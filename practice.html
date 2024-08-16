@@ -1,0 +1,102 @@
+<!-- create html document to have a table ,the no. of rows in the table depends upon the the registration form what you are designing . This registration form must have 
+1. text box for textual and numeric data
+2.radio buttons 
+3. check boxes
+4. large text box to enter comment
+5.dropdown list
+
+all the labels must be in same font color but different background color and different formatting in terms of bold and italic. design this html document by incorporating following
+1. inline style
+2. style document selector
+3.class slector -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <style>
+        body {
+            padding: 20%;
+            background: rgb(9, 3, 47);
+            line-height: 1.6;
+            
+        }
+        .cls{
+            background: #363944;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(246, 243, 243, 0.1);
+            color: white;
+        }
+        .button{
+            color: white;
+            padding: 2%;
+            background: rgb(3, 91, 43);
+            width: 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form action="thanks.html" class="cls">
+        <table>
+            <h1 align="center">Registration Form</h1>
+            <tr>
+                <td><label for="Username">Enter your name:</label></td>
+                <td><input type="text" placeholder="Enter your name here" id="Username" name="Username" ></td>
+            </tr>
+            <tr>
+                <td><label for="Phone">Enter your phone number:</label></td>
+                <td><input type="tel" pattern="[0-9]{10}" placeholder="Format: 904XXXXX8" id="Phone" name="contact"></td>
+            </tr>
+            <tr>
+                <td><label for="gender">Choose your gender:</label></td>
+                <td><input type="radio" id="gender" name="gender" value="m">Male
+                <input type="radio" id="gender" name="gender" value="f">Female
+                <input type="radio" id="gender" name="gender" value="o">Other</td>
+            </tr>
+            <tr>
+                <td rowspan="4"><label for="term">Choose your Hobby </label></td>
+            </tr>
+            <tr>
+                <td ><input type="checkbox" name="terms" id="term" value="dance">Dancing</td>
+            </tr>
+            <tr>
+                <td ><input type="checkbox" name="terms" id="term" value="sing">Singing</td>
+            </tr>
+            <tr>
+                <td ><input type="checkbox" name="terms" id="term" value="paint">Painting</td>
+            </tr>
+            <tr>
+                <td><label for="degree">Select your degree</label></td>
+                <td><select name="degree" id="degree">
+                <option value="ug">Undergraduate</option>
+                <option value="pg">Postgraduate</option>
+                <option value="phd">Ph.D</option></select></td></td>
+            </tr>
+            <tr>
+                <td><label for="feedback">Please provide your Feedback:</label></td>
+                <td><textarea name="feed" id="feedback" placeholder="Enter your comments..." rows="4" cols="50"></textarea></td>
+            </tr>
+
+
+
+
+
+
+
+            <tr>
+                <td colspan="2">
+                    <button class="button">Submit</button>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+</html>
