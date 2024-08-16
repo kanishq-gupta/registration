@@ -17,17 +17,25 @@ all the labels must be in same font color but different background color and dif
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <style>
+        /* Basic Styling */
         body {
-            padding: 20px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background: rgb(9, 3, 47);
-            line-height: 1.6;
             color: white;
         }
-        .form-container {
+        .container {
+            padding: 2%;
             background: #363944;
-            padding: 30px;
+            margin: 20px auto;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(246, 243, 243, 0.1);
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
         }
         table {
             width: 100%;
@@ -37,78 +45,88 @@ all the labels must be in same font color but different background color and dif
             padding: 10px;
             vertical-align: top;
         }
-        label {
-            display: block;
-            font-size: 1em;
+        .label {
+            color: #ffffff;
+            background: #2c3e50;
             font-weight: bold;
-            color: white;
-            background: #6c757d;
+            font-style: italic;
             padding: 5px;
             border-radius: 5px;
-            text-align: center;
         }
-        input[type="text"],
-        input[type="tel"],
-        select,
-        textarea {
+        input[type="text"], input[type="tel"], select, textarea {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            border: 1px solid #ddd;
+            box-sizing: border-box;
         }
-        textarea {
-            resize: vertical;
+        .radio, .checkbox {
+            margin: 0 5px;
         }
-        .radio-group input,
-        .checkbox-group input {
-            margin-right: 10px;
-        }
-        .button {
+        .submit-button {
+            background: rgb(3, 91, 43);
             color: white;
             padding: 10px;
-            background: rgb(3, 91, 43);
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1em;
             width: 100%;
+            font-size: 16px;
         }
-        .button:hover {
-            background: rgb(2, 72, 35);
+        .submit-button:hover {
+            background: rgb(2, 70, 32);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1%;
+                margin: 10px auto;
+            }
+            td {
+                display: block;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h1 align="center">Registration Form</h1>
+    <div class="container">
         <form action="thanks.html">
+            <h1>Registration Form</h1>
             <table>
                 <tr>
-                    <td><label for="Username">Enter your name:</label></td>
+                    <td><label class="label" for="Username">Enter your name:</label></td>
                     <td><input type="text" placeholder="Enter your name here" id="Username" name="Username"></td>
                 </tr>
                 <tr>
-                    <td><label for="Phone">Enter your phone number:</label></td>
+                    <td><label class="label" for="Phone">Enter your phone number:</label></td>
                     <td><input type="tel" pattern="[0-9]{10}" placeholder="Format: 904XXXXX8" id="Phone" name="contact"></td>
                 </tr>
                 <tr>
-                    <td><label>Choose your gender:</label></td>
-                    <td class="radio-group">
-                        <input type="radio" id="male" name="gender" value="m"><label for="male">Male</label>
-                        <input type="radio" id="female" name="gender" value="f"><label for="female">Female</label>
-                        <input type="radio" id="other" name="gender" value="o"><label for="other">Other</label>
+                    <td><label class="label">Choose your gender:</label></td>
+                    <td>
+                        <input type="radio" id="male" name="gender" value="m" class="radio">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="f" class="radio">
+                        <label for="female">Female</label>
+                        <input type="radio" id="other" name="gender" value="o" class="radio">
+                        <label for="other">Other</label>
                     </td>
                 </tr>
                 <tr>
-                    <td><label>Choose your hobbies:</label></td>
-                    <td class="checkbox-group">
-                        <input type="checkbox" id="dance" name="hobbies" value="dance"><label for="dance">Dancing</label><br>
-                        <input type="checkbox" id="sing" name="hobbies" value="sing"><label for="sing">Singing</label><br>
-                        <input type="checkbox" id="paint" name="hobbies" value="paint"><label for="paint">Painting</label>
+                    <td><label class="label">Choose your hobby:</label></td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="dance" value="dance" class="checkbox">
+                        <label for="dance">Dancing</label>
+                        <input type="checkbox" name="hobby" id="sing" value="sing" class="checkbox">
+                        <label for="sing">Singing</label>
+                        <input type="checkbox" name="hobby" id="paint" value="paint" class="checkbox">
+                        <label for="paint">Painting</label>
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="degree">Select your degree:</label></td>
+                    <td><label class="label" for="degree">Select your degree:</label></td>
                     <td>
                         <select name="degree" id="degree">
                             <option value="ug">Undergraduate</option>
@@ -118,12 +136,12 @@ all the labels must be in same font color but different background color and dif
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="feedback">Please provide your Feedback:</label></td>
+                    <td><label class="label" for="feedback">Please provide your feedback:</label></td>
                     <td><textarea name="feedback" id="feedback" placeholder="Enter your comments..." rows="4"></textarea></td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button class="button">Submit</button>
+                        <button type="submit" class="submit-button">Submit</button>
                     </td>
                 </tr>
             </table>
