@@ -10,93 +10,124 @@ all the labels must be in same font color but different background color and dif
 2. style document selector
 3.class slector -->
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration form</title>
+    <title>Registration Form</title>
     <style>
         body {
-            padding: 20%;
+            padding: 20px;
             background: rgb(9, 3, 47);
             line-height: 1.6;
-            
+            color: white;
         }
-        .cls{
+        .form-container {
             background: #363944;
-            padding: 50px;
-            border-radius: 30px;
+            padding: 30px;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(246, 243, 243, 0.1);
-            color: white;
         }
-        .button{
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+        label {
+            display: block;
+            font-size: 1em;
+            font-weight: bold;
             color: white;
-            padding: 2%;
+            background: #6c757d;
+            padding: 5px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .radio-group input,
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        .button {
+            color: white;
+            padding: 10px;
             background: rgb(3, 91, 43);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
             width: 100%;
         }
-
-
+        .button:hover {
+            background: rgb(2, 72, 35);
+        }
     </style>
 </head>
 <body>
-    <form action="thanks.html" class="cls">
-        <table>
-            <h1 align="center">Registration Form</h1>
-            <tr>
-                <td><label for="Username">Enter your name:</label></td>
-                <td><input type="text" placeholder="Enter your name here" id="Username" name="Username" ></td>
-            </tr>
-            <tr>
-                <td><label for="Phone">Enter your phone number:</label></td>
-                <td><input type="tel" pattern="[0-9]{10}" placeholder="Format: 904XXXXX8" id="Phone" name="contact"></td>
-            </tr>
-            <tr>
-                <td><label for="gender">Choose your gender:</label></td>
-                <td><input type="radio" id="gender" name="gender" value="m">Male
-                <input type="radio" id="gender" name="gender" value="f">Female
-                <input type="radio" id="gender" name="gender" value="o">Other</td>
-            </tr>
-            <tr>
-                <td rowspan="4"><label for="term">Choose your Hobby </label></td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox" name="terms" id="term" value="dance">Dancing</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox" name="terms" id="term" value="sing">Singing</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox" name="terms" id="term" value="paint">Painting</td>
-            </tr>
-            <tr>
-                <td><label for="degree">Select your degree</label></td>
-                <td><select name="degree" id="degree">
-                <option value="ug">Undergraduate</option>
-                <option value="pg">Postgraduate</option>
-                <option value="phd">Ph.D</option></select></td></td>
-            </tr>
-            <tr>
-                <td><label for="feedback">Please provide your Feedback:</label></td>
-                <td><textarea name="feed" id="feedback" placeholder="Enter your comments..." rows="4" cols="50"></textarea></td>
-            </tr>
-
-
-
-
-
-
-
-            <tr>
-                <td colspan="2">
-                    <button class="button">Submit</button>
-                </td>
-            </tr>
-
-        </table>
-    </form>
-
+    <div class="form-container">
+        <h1 align="center">Registration Form</h1>
+        <form action="thanks.html">
+            <table>
+                <tr>
+                    <td><label for="Username">Enter your name:</label></td>
+                    <td><input type="text" placeholder="Enter your name here" id="Username" name="Username"></td>
+                </tr>
+                <tr>
+                    <td><label for="Phone">Enter your phone number:</label></td>
+                    <td><input type="tel" pattern="[0-9]{10}" placeholder="Format: 904XXXXX8" id="Phone" name="contact"></td>
+                </tr>
+                <tr>
+                    <td><label>Choose your gender:</label></td>
+                    <td class="radio-group">
+                        <input type="radio" id="male" name="gender" value="m"><label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="f"><label for="female">Female</label>
+                        <input type="radio" id="other" name="gender" value="o"><label for="other">Other</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Choose your hobbies:</label></td>
+                    <td class="checkbox-group">
+                        <input type="checkbox" id="dance" name="hobbies" value="dance"><label for="dance">Dancing</label><br>
+                        <input type="checkbox" id="sing" name="hobbies" value="sing"><label for="sing">Singing</label><br>
+                        <input type="checkbox" id="paint" name="hobbies" value="paint"><label for="paint">Painting</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="degree">Select your degree:</label></td>
+                    <td>
+                        <select name="degree" id="degree">
+                            <option value="ug">Undergraduate</option>
+                            <option value="pg">Postgraduate</option>
+                            <option value="phd">Ph.D</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="feedback">Please provide your Feedback:</label></td>
+                    <td><textarea name="feedback" id="feedback" placeholder="Enter your comments..." rows="4"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="button">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
 </html>
